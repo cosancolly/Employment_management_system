@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Tracking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Employee Attendance Tracking</h1>
+            <p>Track and manage employee attendance records</p>
+        </header>
+
+        <!-- Summary Section -->
+        <section class="summary">
+            <div class="summary-card">
+                <h3>Total Present</h3>
+                <p id="totalPresent" class="summary-number">0</p>
+            </div>
+            <div class="summary-card">
+                <h3>Total Absent</h3>
+                <p id="totalAbsent" class="summary-number">0</p>
+            </div>
+            <div class="summary-card">
+                <h3>Total Late</h3>
+                <p id="totalLate" class="summary-number">0</p>
+            </div>
+            <div class="summary-card">
+                <h3>Total Employees</h3>
+                <p id="totalEmployees" class="summary-number">0</p>
+            </div>
+        </section>
+
+        <!-- Add Attendance Form -->
+        <section class="form-section">
+            <h2>Add Attendance Record</h2>
+            <form id="attendanceForm" class="form">
+                <div class="form-group">
+                    <label for="employeeName">Employee Name:</label>
+                    <input type="text" id="employeeName" placeholder="Enter employee name" required>
+                </div>
+                <div class="form-group">
+                    <label for="employeeId">Employee ID:</label>
+                    <input type="text" id="employeeId" placeholder="Enter employee ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="attendanceDate">Date:</label>
+                    <input type="date" id="attendanceDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="attendanceStatus">Status:</label>
+                    <select id="attendanceStatus" required>
+                        <option value="">Select Status</option>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                        <option value="Late">Late</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="remarks">Remarks:</label>
+                    <input type="text" id="remarks" placeholder="Optional remarks">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Record</button>
+                <button type="reset" class="btn btn-secondary">Clear</button>
+            </form>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <h2>Filter & Search</h2>
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="searchEmployee">Search Employee:</label>
+                    <input type="text" id="searchEmployee" placeholder="Search by name or ID">
+                </div>
+                <div class="filter-group">
+                    <label for="filterStatus">Filter by Status:</label>
+                    <select id="filterStatus">
+                        <option value="">All Status</option>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                        <option value="Late">Late</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterDateFrom">From Date:</label>
+                    <input type="date" id="filterDateFrom">
+                </div>
+                <div class="filter-group">
+                    <label for="filterDateTo">To Date:</label>
+                    <input type="date" id="filterDateTo">
+                </div>
+                <button id="filterBtn" class="btn btn-primary">Apply Filters</button>
+                <button id="resetFilterBtn" class="btn btn-secondary">Reset Filters</button>
+            </div>
+        </section>
+
+        <!-- Attendance Table -->
+        <section class="table-section">
+            <div class="table-header">
+                <h2>Attendance Records</h2>
+                <button id="printBtn" class="btn btn-primary">Print</button>
+            </div>
+            <div class="table-responsive">
+                <table id="attendanceTable" class="attendance-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Employee Name ↕</th>
+                            <th onclick="sortTable(1)">Employee ID ↕</th>
+                            <th onclick="sortTable(2)">Date ↕</th>
+                            <th onclick="sortTable(3)">Status ↕</th>
+                            <th>Remarks</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendanceTableBody">
+                        <!-- Rows will be inserted here -->
+                    </tbody>
+                </table>
+                <p id="noRecordsMsg" class="no-records">No attendance records found. Add one to get started!</p>
+            </div>
+        </section>
+
+        <!-- Pagination -->
+        <section class="pagination-section">
+            <div id="pagination" class="pagination"></div>
+        </section>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Attendance Record</h2>
+            <form id="editForm" class="form">
+                <div class="form-group">
+                    <label for="editEmployeeName">Employee Name:</label>
+                    <input type="text" id="editEmployeeName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEmployeeId">Employee ID:</label>
+                    <input type="text" id="editEmployeeId" required>
+                </div>
+                <div class="form-group">
+                    <label for="editDate">Date:</label>
+                    <input type="date" id="editDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="editStatus">Status:</label>
+                    <select id="editStatus" required>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                        <option value="Late">Late</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editRemarks">Remarks:</label>
+                    <input type="text" id="editRemarks">
+                </div>
+                <button type="submit" class="btn btn-primary">Update Record</button>
+                <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
