@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Header/Navbar -->
+    <header class="top-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1 class="logo">Employee Management System</h1>
+            </div>
+            <div class="auth-buttons">
+                <a href="../pages/login.html" class="btn btn-login">Login</a>
+                <a href="../pages/signup.html" class="btn btn-signup">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../pages/add-employee.html" class="nav-link">
+                            <span class="nav-text">Add Employee</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pages/employee-list.html" class="nav-link">
+                            <span class="nav-text">Employee List</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pages/profile.html" class="nav-link">
+                            <span class="nav-text">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pages/departments.html" class="nav-link">
+                            <span class="nav-text">Departments</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pages/attendance.html" class="nav-link">
+                            <span class="nav-text">Attendance</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pages/payroll.html" class="nav-link">
+                            <span class="nav-text">Payroll</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pages/tasks.html" class="nav-link">
+                            <span class="nav-text">Tasks</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Dashboard Content -->
+        <main class="main-content">
+            <div class="dashboard-header">
+                <h2>Dashboard Overview</h2>
+                <p class="dashboard-subtitle sub">Welcome to your Employee Management System</p>
+            </div>
+
+            <!-- Dashboard Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3 class="stat-value">0</h3>
+                        <p class="stat-label">Total Employees</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3 class="stat-value">0</h3>
+                        <p class="stat-label">Departments</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3 class="stat-value">0%</h3>
+                        <p class="stat-label">Attendance Rate</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3 class="stat-value">0</h3>
+                        <p class="stat-label">Active Tasks</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="actions-grid">
+                    <a href="../pages/add-employee.html" class="action-card">
+                        <span class="action-text">Add New Employee</span>
+                    </a>
+                    <a href="../pages/attendance.html" class="action-card">
+                        <span class="action-text">Mark Attendance</span>
+                    </a>
+                    <a href="../pages/payroll.html" class="action-card">
+                        <span class="action-text">Process Payroll</span>
+                    </a>
+                    <a href="../pages/tasks.html" class="action-card">
+                        <span class="action-text">View Tasks</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
