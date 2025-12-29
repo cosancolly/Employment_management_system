@@ -1,0 +1,136 @@
+body {
+  font-family:'Segoe UI',sans-serif;
+  background: linear-gradient(120deg,#1f4037,#99f2c8);
+    margin: 0;
+    padding: 0;
+}
+
+.payroll-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+}
+
+.deduction td {
+    color: #c0392b;
+}
+
+.total td {
+    font-weight: bold;
+    background-color: #f9f9f9;
+}
+
+.paid {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.pending {
+    color: #e67e22;
+    font-weight: bold;
+}
+header {
+    background: #1f4037;
+    color: #fff;
+    height: 60px;              /* Good visible height */
+    display: flex;
+    align-items: center;      /* Vertical center */
+    justify-content: center;  /* Horizontal center */
+}
+
+header h1 {
+    margin: 0;                /* Remove default spacing */
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.table-wrapper {
+    max-height: 300px;        /* allows scrolling */
+    overflow-y: auto;
+}
+
+table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #ecf0f1;
+    z-index: 1;
+}
+
+table td,
+table th {
+    white-space: nowrap;
+}
+.add-payroll-btn {
+    margin: 15px 0;
+    text-align: right;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-header h2 {
+    margin: 0;
+}
+
+.add-btn {
+    background-color: #1f4037;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-btn:hover {
+    background-color: #428d6a;
+}
+
+.plus {
+    font-size: 18px;
+    font-weight: bold;
+}
+

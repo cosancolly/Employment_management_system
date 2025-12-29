@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payroll Page</title>
+    <link rel="stylesheet" href="payroll.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Payroll Information Page</h1>
+    </header>
+
+    <div class="payroll-container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Employee Payroll Details</h2>
+
+                <button type="button" class="add-btn" onclick="window.location.href='add_payroll.html'">
+                    <span class="plus">+</span> Add Employee Payroll
+                </button>
+            </div>
+
+
+
+            <!-- PAYROLL TABLE -->
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Emp ID</th>
+                            <th>Full Name</th>
+                            <th>Department</th>
+                            <th>Basic Salary (TZS)</th>
+                            <th>Allowances (TZS)</th>
+                            <th>Deductions (TZS)</th>
+                            <th>Net Salary (TZS)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HR_001</td>
+                            <td>Esther Mbuyu</td>
+                            <td>Human Resources</td>
+                            <td>800,000</td>
+                            <td>300,000</td>
+                            <td class="deduction">-120,000</td>
+                            <td class="total">980,000</td>
+                        </tr>
+                        <tr>
+                            <td>IT-002</td>
+                            <td>Collince Carist</td>
+                            <td>Information Technology</td>
+                            <td>750,000</td>
+                            <td>250,000</td>
+                            <td class="deduction">-100,000</td>
+                            <td class="total">900,000</td>
+                        </tr>
+ <tr>
+    <td>FIN-003</td>
+    <td>Luchagula Nkwale</td>
+    <td>Finance</td>
+    <td>850,000</td>
+    <td>250,000</td>
+    <td class="deduction">-100,000</td>
+    <td class="total">1,000,000</td>
+</tr>
+<tr>
+    <td>OO-004</td>
+    <td>Olga Msacky</td>
+    <td>Operations</td>
+    <td>950,000</td>
+    <td>250,000</td>
+    <td class="deduction">-100,000</td>
+    <td class="total">1,100,000</td>
+</tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
