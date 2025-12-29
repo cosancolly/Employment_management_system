@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Login - Secure Access</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 600px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+}
+.login-header {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+}
+.login-header h1 {
+    color: #1f4037; 
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.login-header p {
+    color: #666; 
+    font-size: 1rem;
+}
+.login-form {
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+}
+.form-group {
+    margin-bottom: 20px; /* space between input fields */
+    position: relative;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #1f4037;
+    font-weight: bold;
+}
+.input-with-icon {
+    position: relative;
+}
+.input-with-icon i.left-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 1.1rem;
+}
+.input-with-icon i.right-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1f4037;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+.form-control {
+    width: 100%;
+    padding: 14px 45px 14px 45px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: #f0f8f5;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+.form-control:focus {
+    border-color: #1f4037;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(31, 64, 55, 0.1);
+}
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px; /* visible gap from password field */
+    background: linear-gradient(to right, #1f4037, #99f2c8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.login-btn:hover {
+    background: linear-gradient(to right, #182e26, #7dd9b0);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(31, 64, 55, 0.3);
+}
+.login-btn:active {
+    transform: translateY(0);
+}
+.form-footer {
+    text-align: center;
+    margin-top: 30px; /* slight distance from login button */
+}
+.form-footer a {
+    color: #1f4037;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    margin: 0 8px;
+}
+.form-footer a:hover {
+    color: #99f2c8;
+    text-decoration: underline;
+}
+.back-to-home {
+    text-align: center;
+    margin-top: 15px;
+}
+.back-to-home a {
+    color: #1f4037;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.back-to-home a:hover {
+    text-decoration: underline;
+}
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+.success-message {
+    color: green;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+@media (max-width: 480px) {
+    .login-container { border-radius: 15px; min-height: 550px; }
+    .login-header { padding: 30px 20px 20px 20px; }
+    .login-form { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+<div class="login-container">
+    <div class="login-header">
+        <h1><i class="fas fa-lock"></i> Secure Login</h1>
+        <p>Access your account with your credentials</p>
+    </div>
+    <form class="login-form" id="loginForm">
+        <div class="form-group">
+            <label>Username or Email</label>
+            <div class="input-with-icon">
+                <i class="fas fa-envelope left-icon"></i>
+                <input type="text" id="username" class="form-control" placeholder="Enter your username or email" required>
+            </div>
+            <div class="error-message" id="usernameError">Please enter a valid username or email</div>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <div class="input-with-icon">
+                <i class="fas fa-lock left-icon"></i>
+                <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                <i class="fas fa-eye right-icon" id="togglePassword"></i>
+            </div>
+            <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
+        </div>
+        <button type="submit" class="login-btn" id="loginButton"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <div class="success-message" id="loginSuccess"><i class="fas fa-check-circle"></i> Login successful! Redirecting...</div>
+    </form>
+    <div class="form-footer">
+        <a href="#"><i class="fas fa-question-circle"></i> Forgot Password?</a> |
+        <a href="#"><i class="fas fa-user-plus"></i> Create Account</a>
+    </div>
+    <div class="back-to-home">
+        <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
+    </div>
+</div>
+
+<script>
+// Password toggle inside field
+const passwordInput = document.getElementById('password');
+const togglePassword = document.getElementById('togglePassword');
+togglePassword.addEventListener('click', () => {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    togglePassword.classList.toggle('fa-eye-slash');
+    togglePassword.classList.toggle('fa-eye');
+});
+
+// Form validation
+const loginForm = document.getElementById('loginForm');
+const usernameInput = document.getElementById('username');
+const usernameError = document.getElementById('usernameError');
+const passwordError = document.getElementById('passwordError');
+const loginSuccess = document.getElementById('loginSuccess');
+const loginButton = document.getElementById('loginButton');
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function validateForm() {
+    let isValid = true;
+    usernameError.style.display = 'none';
+    passwordError.style.display = 'none';
+    usernameInput.style.borderColor = '#ddd';
+    passwordInput.style.borderColor = '#ddd';
+
+    const username = usernameInput.value.trim();
+    if (username.length === 0) {
+        usernameError.textContent = 'Username or email is required';
+        usernameError.style.display = 'block';
+        usernameInput.style.borderColor = 'red';
+        isValid = false;
+    } else if (!isValidEmail(username) && username.length < 3) {
+        usernameError.textContent = 'Please enter a valid email or username (min 3 characters)';
+        usernameError.style.display = 'block';
+        usernameInput.style.borderColor = 'red';
+        isValid = false;
+    }
+
+    const password = passwordInput.value;
+    if (password.length === 0) {
+        passwordError.textContent = 'Password is required';
+        passwordError.style.display = 'block';
+        passwordInput.style.borderColor = 'red';
+        isValid = false;
+    } else if (password.length < 6) {
+        passwordError.textContent = 'Password must be at least 6 characters';
+        passwordError.style.display = 'block';
+        passwordInput.style.borderColor = 'red';
+        isValid = false;
+    }
+    return isValid;
+}
+
+loginForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(validateForm()){
+        loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+        loginButton.disabled = true;
+        setTimeout(() => {
+            loginSuccess.style.display = 'block';
+            loginButton.style.display = 'none';
+            setTimeout(() => {
+                alert('Login successful! In a real app, redirect to dashboard.');
+            }, 1500);
+        }, 1000);
+    }
+});
+</script>
+</body>
+</html>
