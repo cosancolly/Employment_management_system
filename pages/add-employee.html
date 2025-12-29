@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Management System</title>
+  <style>
+    body {
+  font-family:'Segoe UI',sans-serif;
+  background: linear-gradient(120deg,#1f4037,#99f2c8);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* --- Header --- */
+    .header {
+      background: #1f4037; /* Dark blue */
+      color: #fff;
+      padding: 15px 20px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center; /* Center heading */
+    }
+
+    /* --- Container --- */
+    .container {
+      max-width: 500px; /* reduced width */
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* stronger shadow */
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .container:hover {
+      box-shadow: 0 12px 28px rgba(0,0,0,0.4); /* deeper shadow on hover */
+      transform: translateY(-3px); /* slight lift effect */
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .main-heading {
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      color: #002b5c;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input, select {
+      width: 90%;
+      margin: 0 auto 15px auto;
+      display: block;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.15); /* stronger inner shadow */
+    }
+
+    button {
+      width: 90%;
+      margin: 0 auto;
+      display: block;
+      padding: 10px;
+      background: #1f4037;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.3); /* stronger button shadow */
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+      background: #428d6a;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+      transform: translateY(-2px); /* button lift effect */
+    }
+
+    .message {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: green;
+    }
+
+    /* --- Back Link --- */
+    .back-link {
+      display: block;
+      margin: 30px auto 0;
+      width: fit-content;
+      color: #002b5c;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: white;
+      margin: 40px 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">Employee Management System</div>
+
+  <!-- Admin Login -->
+  <div class="container" id="adminLogin">
+    <h2>Administrator Access</h2>
+    <p class="section-title">Enter admin password to continue</p>
+    <input type="password" id="adminPass" placeholder="Admin Password">
+    <button onclick="checkAdmin()">Login</button>
+    <div class="message" id="loginMessage"></div>
+  </div>
+
+  <!-- Registration Form Section (hidden until admin login) -->
+  <div class="container" id="addEmployee" style="display:none;">
+    <h1 class="main-heading">Employee Management System</h1>
+    <h2>Employee Records</h2>
+    <div class="section-title">Register New Employee</div>
+    <form id="employeeForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+
+      <label for="empId">Employee ID</label>
+      <input type="text" id="empId" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="department">Department</label>
+      <select id="department" required>
+        <option value="">-- Select Department --</option>
+        <option>Human Resources</option>
+        <option>Finance</option>
+        <option>Information Technology</option>
+        <option>Marketing</option>
+        <option>Operations</option>
+      </select>
+
+      <label for="position">Job Position</label>
+      <input type="text" id="position" required>
+
+      <button type="submit">Register Employee</button>
+    </form>
+    <div class="message" id="message"></div>
+
+    <!-- Back Link -->
+    <a href="employees.html" class="back-link">← Back to Employee List</a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">© 2025 Employee Management System. All rights reserved.</div>
+
+  <script>
+    function checkAdmin() {
+      const pass = document.getElementById('adminPass').value;
+      const loginMessage = document.getElementById('loginMessage');
+      if (pass === "admin123") { // demo password
+        document.getElementById('adminLogin').style.display = "none";
+        document.getElementById('addEmployee').style.display = "block";
+      } else {
+        loginMessage.textContent = "Access denied. Only system admins can add employees.";
+        loginMessage.style.color = "red";
+      }
+    }
+
+    const form = document.getElementById('employeeForm');
+    const message = document.getElementById('message');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      message.textContent = "Employee registered successfully!";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
