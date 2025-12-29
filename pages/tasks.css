@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Status colors */
+.pending {
+    color: #e67e22;
+    font-weight: bold;
+}
+
+.progress {
+    color: #3498db;
+    font-weight: bold;
+}
+
+.completed {
+    color: #2ecc71;
+    font-weight: bold;
+}
