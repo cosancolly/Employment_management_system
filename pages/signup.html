@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create Account</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background: linear-gradient(120deg,#1f4037,#99f2c8);
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.card{
+  background:white;
+  width:400px;
+  max-width:90%;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+  position:relative;
+}
+h2{
+  text-align:center;
+  margin-bottom:5px;
+  color:#1f4037;
+}
+.sub{
+  text-align:center;
+  font-size:13px;
+  color:#666;
+  margin-bottom:20px;
+}
+.input-group{
+  position:relative;
+  margin-bottom:15px;
+  width:100%;
+}
+.input-group i{
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#999;
+  cursor:pointer;
+}
+.input-group input, .input-group select{
+  width:100%;
+  padding:12px 12px 12px 35px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  outline:none;
+  transition:0.3s;
+  box-sizing:border-box;
+}
+.input-group input:focus, .input-group select:focus{
+  border-color:#1f4037;
+}
+button{
+  width:100%;
+  margin-top:10px;
+  padding:13px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(to right,#1f4037,#99f2c8);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:.3s;
+}
+button:hover{
+  opacity:.9;
+}
+#msg{
+  text-align:center;
+  margin-top:12px;
+  font-weight:bold;
+  font-size:14px;
+  color:green;
+  transition:0.5s;
+}
+/* Eye icon position on password fields */
+.input-group .eye-icon {
+  right: 12px;
+  left: auto;
+}
+.error-msg {
+  color: red;
+  font-size: 12px;
+  margin-top: 3px;
+}
+/* Login redirect link */
+.login-link{
+  text-align:center;
+  margin-top:15px;
+  font-size:12px;
+  color:#666;
+}
+.login-link a{
+  color:#1f4037;
+  font-weight:bold;
+  text-decoration:none;
+}
+.login-link a:hover{
+  text-decoration:underline;
+}
+/* Back to homepage link */
+.back-home-link{
+  text-align:center;
+  margin-top:10px;
+  font-size:12px;
+}
+.back-home-link a{
+  color:#1f4037;
+  font-weight:bold;
+  text-decoration:none;
+}
+.back-home-link a:hover{
+  text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <h2>Create Account</h2>
+  <div class="sub">Employee Management System Registration</div>
+
+  <div class="input-group">
+    <i class="fa fa-user"></i>
+    <input type="text" id="fullname" placeholder="Full Name">
+  </div>
+
+  <div class="input-group">
+    <i class="fa fa-id-badge"></i>
+    <input type="text" id="empnum" placeholder="Employee Number (e.g. MZRH-ICT-0021)">
+  </div>
+
+  <div class="input-group">
+    <i class="fa fa-envelope"></i>
+    <input type="email" id="email" placeholder="Email Address">
+  </div>
+
+  <div class="input-group">
+    <i class="fa fa-phone"></i>
+    <input type="tel" id="phone" placeholder="Phone Number +255">
+  </div>
+
+  <div class="input-group">
+    <i class="fa fa-building"></i>
+    <select id="department">
+      <option value="">Select Department</option>
+      <option>Human Resource</option>
+      <option>ICT</option>
+      <option>Finance</option>
+      <option>Administration</option>
+      <option>Medical</option>
+    </select>
+  </div>
+
+  <div class="input-group">
+    <i class="fa fa-lock"></i>
+    <input type="password" id="pass1" placeholder="Create Password" oninput="validatePassword('pass1','msg1')">
+    <i class="fa fa-eye eye-icon" onclick="togglePassword('pass1', this)"></i>
+    <div id="msg1" class="error-msg"></div>
+  </div>
+
+  <div class="input-group">
+    <i class="fa fa-lock"></i>
+    <input type="password" id="pass2" placeholder="Confirm Password" oninput="validatePassword('pass2','msg2')">
+    <i class="fa fa-eye eye-icon" onclick="togglePassword('pass2', this)"></i>
+    <div id="msg2" class="error-msg"></div>
+  </div>
+
+  <button onclick="checkPassword()">Create Account</button>
+  <div id="msg"></div>
+
+  <!-- Login redirect -->
+  <div class="login-link">
+    Already have an account? <a href="login.html">Login</a>
+  </div>
+
+  <!-- Back to homepage -->
+  <div class="back-home-link">
+    <a href="index.html">← Back to homepage</a>
+  </div>
+</div>
+
+<script>
+// Show/Hide password
+function togglePassword(id, icon){
+  var input = document.getElementById(id);
+  if(input.type === "password"){
+    input.type = "text";
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+  } else {
+    input.type = "password";
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+  }
+}
+
+// Validate password length as user types
+function validatePassword(id, msgId){
+  var input = document.getElementById(id);
+  var msg = document.getElementById(msgId);
+  if(input.value.length > 0 && input.value.length < 6){
+    msg.innerHTML = "Password must be at least 6 characters.";
+  } else {
+    msg.innerHTML = "";
+  }
+}
+
+// Final check when submitting
+function checkPassword(){
+  var fullname=document.getElementById("fullname");
+  var empnum=document.getElementById("empnum");
+  var email=document.getElementById("email");
+  var phone=document.getElementById("phone");
+  var department=document.getElementById("department");
+  var pass1=document.getElementById("pass1");
+  var pass2=document.getElementById("pass2");
+  var msg1=document.getElementById("msg1");
+  var msg2=document.getElementById("msg2");
+  var msg=document.getElementById("msg");
+
+  // Check password length
+  if(pass1.value.length < 6){
+    msg1.innerHTML = "Password must be at least 6 characters.";
+    pass1.focus();
+    return;
+  } 
+  // Check if passwords match
+  else if(pass1.value !== pass2.value){
+    msg2.innerHTML = "Passwords do not match.";
+    pass2.focus();
+    return;
+  } 
+  else{
+    msg.innerHTML="Your account has been created successfully!";
+    msg.style.color="green";
+
+    // Clear all fields
+    fullname.value="";
+    empnum.value="";
+    email.value="";
+    phone.value="";
+    department.value="";
+    pass1.value="";
+    pass2.value="";
+    msg1.innerHTML="";
+    msg2.innerHTML="";
+
+    // Remove success message after 3 seconds
+    setTimeout(() => {
+      msg.innerHTML="";
+    }, 3000);
+  }
+}
+</script>
+
+</body>
+</html>
+
