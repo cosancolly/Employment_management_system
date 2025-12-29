@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Department Management | EMS</title>
+    <style>
+        /* BODY BACKGROUND */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #1f4037, #99f2c8);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #1f4037;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* MAIN CONTAINER (CARD-LIKE AREA) */
+        .container {
+            width: 90%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 60px; /* To avoid footer overlap */
+        }
+
+        /* HEADING */
+        h2 {
+            color: #1f4037;
+            margin-bottom: 10px;
+        }
+
+        /* SUBTEXT */
+        p {
+            color: #666;
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        /* TABLE HEADER */
+        table th {
+            background-color: #1f4037;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #e0f2f1;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1f4037;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Employee Management System</h1>
+    <p>Department Management</p>
+</header>
+
+<div class="container">
+    <h2>Departments</h2>
+    <p>This page shows the list of departments in the organization.</p>
+
+    <table>
+        <tr>
+            <th>Department ID</th>
+            <th>Department Name</th>
+            <th>Description</th>
+            <th>Head of Department</th>
+        </tr>
+        <tr>
+            <td>D001</td>
+            <td>Human Resources</td>
+            <td>Manages employee relations, recruitment, and welfare</td>
+            <td>Esther Mbuyu</td>
+        </tr>
+        <tr>
+            <td>D002</td>
+            <td>Information Technology</td>
+            <td>Handles system development, maintenance, and IT support</td>
+            <td>Collince Carist</td>
+        </tr>
+        <tr>
+            <td>D003</td>
+            <td>Finance</td>
+            <td>Responsible for budgeting, payroll, and financial records</td>
+            <td>Luchagula Nkwale</td>
+        </tr>
+        <tr>
+            <td>D004</td>
+            <td>Marketing</td>
+            <td>Manages advertising, branding, and market research</td>
+            <td>Rezia Sanare</td>
+        </tr>
+        <tr>
+            <td>D005</td>
+            <td>Operations</td>
+            <td>Oversees daily business operations and logistics</td>
+            <td>Olga Msacky</td>
+        </tr>
+    </table>
+</div>
+
+<footer>
+    <p>&copy; 2025 Employee Management System</p>
+</footer>
+
+</body>
+</html>
