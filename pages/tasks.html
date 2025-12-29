@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Tasks | EMS</title>
+    <link rel="stylesheet" href="tasks.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Employee Tasks Management</h2>
+
+    <!-- Task Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Task Title</th>
+                <th>Description</th>
+                <th>Assigned Employee</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="taskTable">
+            <tr>
+                <td>Prepare Monthly Report</td>
+                <td>Compile and analyze monthly sales data</td>
+                <td>John Doe</td>
+                <td class="pending">Pending</td>
+            </tr>
+            <tr>
+                <td>System Maintenance</td>
+                <td>Update and test EMS modules</td>
+                <td>Mary Smith</td>
+                <td class="progress">In Progress</td>
+            </tr>
+            <tr>
+                <td>Employee Onboarding</td>
+                <td>Register new employees in the system</td>
+                <td>David Joseph</td>
+                <td class="completed">Completed</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="tasks.js"></script>
+</body>
+</html>
