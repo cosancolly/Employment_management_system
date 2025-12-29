@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Profile</title>
+
+  <!-- CSS Part -->
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #2f6f5f, #7cc8a1); /* Green gradient */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .profile-card {
+      background-color: #fff;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1f3d35; /* Dark green text */
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #ddd;
+      display: block;
+      margin: 0 auto 10px auto;
+      object-fit: cover;
+      border: 3px solid #2f6f5f; /* Green border */
+    }
+
+    .upload-btn {
+      display: block;
+      margin: 0 auto 20px auto;
+      text-align: center;
+      cursor: pointer;
+      color: #2f6f5f; /* Green accent */
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .section-title {
+      background-color: #c4e6d0; /* Light green section background */
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin: 20px 0 10px 0;
+      color: #2f6f5f; /* Dark green text */
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .input-group i {
+      margin-right: 10px;
+      color: #2f6f5f; /* Dark green icons */
+      min-width: 20px;
+      text-align: center;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .btn-save {
+      width: 100%;
+      padding: 12px;
+      background-color: #2f6f5f; /* Dark green button */
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-save:hover {
+      background-color: #1f3d35; /* Darker green on hover */
+    }
+  </style>
+
+  <!-- Icons from Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="profile-card">
+    <h2>Employee Profile</h2>
+    <img src="" alt="Profile Pic" id="profilePic" class="profile-pic">
+    <label class="upload-btn" for="uploadInput"><i class="fas fa-upload"></i> Upload Profile Picture</label>
+    <input type="file" id="uploadInput" accept="image/*" style="display:none">
+
+    <div class="section-title">Personal Details</div>
+    <div class="input-group"><i class="fas fa-user"></i><input type="text" placeholder="Enter your name"></div>
+    <div class="input-group"><i class="fas fa-id-badge"></i><input type="text" placeholder="Enter ID"></div>
+    <div class="input-group"><i class="fas fa-phone"></i><input type="text" placeholder="Enter phone number"></div>
+    <div class="input-group"><i class="fas fa-envelope"></i><input type="email" placeholder="Enter email"></div>
+
+    <div class="section-title">Professional Details</div>
+    <div class="input-group"><i class="fas fa-briefcase"></i><input type="text" placeholder="Enter job title"></div>
+    <div class="input-group"><i class="fas fa-building"></i><input type="text" placeholder="Enter department"></div>
+    <div class="input-group"><i class="fas fa-toggle-on"></i>
+      <select>
+        <option>Active</option>
+        <option>Inactive</option>
+      </select>
+    </div>
+
+    <button class="btn-save">Save Profile</button>
+  </div>
+
+  <script>
+    const uploadInput = document.getElementById('uploadInput');
+    const profilePic = document.getElementById('profilePic');
+
+    uploadInput.addEventListener('change', function() {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          profilePic.src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+
+</body>
+</html>
