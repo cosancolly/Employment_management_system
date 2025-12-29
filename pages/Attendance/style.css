@@ -1,0 +1,546 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #1f4037 0%, #99f2c8 100%);
+    color: #2c3e50;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+    color: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(31, 64, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    font-size: 1.1em;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+/* Summary Section */
+.summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.summary-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    border-left: 5px solid #1f4037;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.summary-card h3 {
+    color: #5a6c7d;
+    font-size: 0.95em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.summary-number {
+    font-size: 2.8em;
+    font-weight: 700;
+    color: #1f4037;
+    display: block;
+}
+
+/* Form Section */
+.form-section,
+.filter-section,
+.table-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #1f4037;
+}
+
+.form-section h2,
+.filter-section h2,
+.table-section h2 {
+    color: #1f4037;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+/* Form Styling */
+.form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.95em;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: all 0.3s;
+    background-color: #f8f9fb;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #1f4037;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(31, 64, 55, 0.1);
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95em;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(31, 64, 55, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(31, 64, 55, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background-color: #e8ecf1;
+    color: #2c3e50;
+}
+
+.btn-secondary:hover {
+    background-color: #d8e0eb;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.btn-edit {
+    background-color: #3498db;
+    color: white;
+    padding: 8px 14px;
+    font-size: 0.85em;
+    margin-right: 8px;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+}
+
+.btn-edit:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+/* Filter Section */
+.filter-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.95em;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: inherit;
+    background-color: #f8f9fb;
+    transition: all 0.3s;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    outline: none;
+    border-color: #1f4037;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(31, 64, 55, 0.1);
+}
+
+/* Table Section */
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 20px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #e0e6ed;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.attendance-table thead {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    border-bottom: 2px solid #d0d7e6;
+}
+
+.attendance-table th {
+    padding: 18px 15px;
+    text-align: left;
+    font-weight: 700;
+    color: #1f4037;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+}
+
+.attendance-table th:hover {
+    background-color: #e0e6ed;
+}
+
+.attendance-table td {
+    padding: 16px 15px;
+    border-bottom: 1px solid #e0e6ed;
+    color: #5a6c7d;
+}
+
+.attendance-table tbody tr:hover {
+    background-color: #f8f9fb;
+}
+
+/* Status Indicators */
+.status-badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85em;
+    text-align: center;
+    min-width: 90px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.status-present {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+}
+
+.status-absent {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+}
+
+.status-late {
+    background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
+    color: white;
+}
+
+/* Action Buttons in Table */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 14px;
+    font-size: 0.85em;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.2);
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+    transform: translateY(-1px);
+}
+
+/* Pagination */
+.pagination-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pagination button,
+.pagination span {
+    padding: 10px 14px;
+    margin: 5px;
+    border: 2px solid #e0e6ed;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.3s;
+    font-weight: 600;
+    color: #5a6c7d;
+}
+
+.pagination button:hover {
+    background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+    color: white;
+    border-color: #1f4037;
+    transform: translateY(-2px);
+}
+
+.pagination .active {
+    background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+    color: white;
+    border-color: #1f4037;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 35px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border-top: 4px solid #1f4037;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #1f4037;
+}
+
+.modal-content h2 {
+    color: #1f4037;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* No Records Message */
+.no-records {
+    text-align: center;
+    padding: 60px 40px;
+    color: #666;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.sub {
+    color: #666;
+}
+
+.msg {
+    color: #27ae60;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .header p {
+        font-size: 1em;
+    }
+
+    .summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-controls .btn {
+        width: 100%;
+    }
+
+    .attendance-table {
+        font-size: 0.9em;
+    }
+
+    .attendance-table th,
+    .attendance-table td {
+        padding: 12px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        width: 100%;
+    }
+
+    .table-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .table-header .btn {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    .header p {
+        font-size: 0.95em;
+    }
+
+    .form-section,
+    .filter-section,
+    .table-section {
+        padding: 20px;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.9em;
+    }
+}
